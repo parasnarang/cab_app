@@ -49,10 +49,10 @@ end
 Given /^Users have some previous requests/ do
   CabRequest.create!( requester: 'homer', traveler_name: 'self',pick_up_date: '07/02/9999',
                       pick_up_date_time: '11:15 PM', contact_no: '9039409828',
-                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, comments: 'something' )
+                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, vehicle_type: 'Indigo', comments: 'something' )
   CabRequest.create!( requester: 'owl', traveler_name: 'self',pick_up_date: '07/02/9999',
                       pick_up_date_time: '11:15 PM', contact_no: '9039409828',
-                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, comments: 'something' )
+                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, vehicle_type: 'Indigo', comments: 'something' )
 end
 
 

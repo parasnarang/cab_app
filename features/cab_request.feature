@@ -19,6 +19,7 @@ Feature: Requesting a cab
     And    User selects other from drop down list destination
     And    User fills in other_destination as India Gate
     And    User fills in no_of_passengers as 1
+    And    User selects Indigo from drop down list vehicle_type
     And    Users have some previous requests
     When   User creates cab_request
     Then   User should be able to view all his CabRequests including this one

@@ -1,5 +1,6 @@
 -@sources = ["ThoughtWorks","Airport","Guest House","McKinsey","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+-@vehicle_types = ["Indigo","Swift","Innova"]
 .span12
   .form-horizontal
     = form_for(@cab_request) do |f|
@@ -65,6 +66,17 @@
         .span4
           .control-group
             = f.text_field  :no_of_passengers, type: 'number', class: "input-block-level", value: @cab_request.no_of_passengers, placeholder: "No. of passengers (including you)", id: "no_of_passengers", required: true, min: '1', max: '50', title: '1..50 only'
+
+      .row-fluid.form-main
+        .span2
+          %h4 Vehicle Type
+        .span4
+          .control-group
+            %select{name: "cab_request[vehicle_type]", class: "vehicle_type input-block-level", id: "vehicle_type", required: true}
+              -#%option{:disabled => "", :selected => "", :value => ""} Select
+              -@vehicle_types.each do|vehicle_type|
+                %option{value: vehicle_type,:selected => (vehicle_type == @cab_request.vehicle_type)||(vehicle_type == @vehicle_type)}= vehicle_type
+              %end
 
       .row-fluid
         .span2

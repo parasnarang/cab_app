@@ -17,6 +17,7 @@ describe CabRequest do
       (@cab_request.has_attribute? :source).should be_true
       (@cab_request.has_attribute? :destination).should be_true
       (@cab_request.has_attribute? :no_of_passengers).should be_true
+      (@cab_request.has_attribute? :vehicle_type).should be_true
       (@cab_request.has_attribute? :comments).should be_true
     end
 
@@ -146,6 +147,15 @@ describe CabRequest do
       @cab_request.no_of_passengers=80
       @cab_request.save.should be_false
       @cab_request.errors[:no_of_passengers].first.should=='should not be more than 50'
+    end
+  end
+
+  context 'Vehicle Type' do
+
+    it 'should not be blank' do
+      @cab_request.vehicle_type=nil
+      @cab_request.save.should be_false
+      @cab_request.errors[:vehicle_type].first.should == 'can\'t be blank'
     end
   end
 

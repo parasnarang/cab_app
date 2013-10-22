@@ -8,6 +8,7 @@
   %th From
   %th To
   %th No of passengers
+  %th Vehicle Type
   %th Status
   -#%th
 
@@ -22,6 +23,7 @@
       %td= each_request.source
       %td= each_request.destination
       %td= each_request.no_of_passengers
+      %td= each_request.vehicle_type
       %td
         %input{value: each_request.status}
         %input{type: 'button', class: 'btn btn-primary', value: 'update'}

@@ -2,9 +2,9 @@
 class CabRequest < ActiveRecord::Base
   attr_accessor :pick_up_date
 
-  attr_accessible :requester, :traveler_name, :contact_no, :pick_up_date, :pick_up_date_time, :source, :destination, :no_of_passengers, :comments, :status
+  attr_accessible :requester, :traveler_name, :contact_no, :pick_up_date, :pick_up_date_time, :source, :destination, :no_of_passengers, :vehicle_type, :comments, :status
 
-  validates_presence_of :requester, :traveler_name, :contact_no, :pick_up_date, :pick_up_date_time, :source, :destination, :no_of_passengers, :status
+  validates_presence_of :requester, :traveler_name, :contact_no, :pick_up_date, :pick_up_date_time, :source, :destination, :no_of_passengers, :vehicle_type, :status
   validates_length_of :traveler_name, maximum: 35
   validates_length_of :contact_no, minimum: 10
   validates_length_of :source, maximum: 20
