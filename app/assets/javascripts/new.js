@@ -1,6 +1,6 @@
 
 var time,source,destination,other_destination;
-function onSelectedValueChange(ddl_id,txt_id,txt2_id)
+function onSelectedValueChange(ddl_id,txt_id,txt2_id,guest_house_id)
 {
     var ddl_list = document.getElementById(ddl_id);
     if  (ddl_list.value=="other")
@@ -10,6 +10,7 @@ function onSelectedValueChange(ddl_id,txt_id,txt2_id)
         document.getElementById(txt_id).focus()
         document.getElementById(txt2_id).type = "hidden";
         document.getElementById(txt2_id).disabled=true;
+        $('#'+guest_house_id).hide();
     }
     else if (ddl_list.value=="Airport")
     {
@@ -18,6 +19,16 @@ function onSelectedValueChange(ddl_id,txt_id,txt2_id)
         document.getElementById(txt2_id).focus()
         document.getElementById(txt_id).type = "hidden";
         document.getElementById(txt_id).disabled=true;
+        $('#'+guest_house_id).hide();
+    }
+    else if (ddl_list.value=="Guest House")
+    {
+        $('#'+guest_house_id).show();
+        document.getElementById(guest_house_id).disabled=false;
+        document.getElementById(txt_id).type = "hidden";
+        document.getElementById(txt_id).disabled=true;
+        document.getElementById(txt2_id).type = "hidden";
+        document.getElementById(txt2_id).disabled=true;
     }
     else
     {
@@ -25,10 +36,14 @@ function onSelectedValueChange(ddl_id,txt_id,txt2_id)
         document.getElementById(txt_id).disabled=true;
         document.getElementById(txt2_id).type = "hidden";
         document.getElementById(txt2_id).disabled=true;
+        $('#'+guest_house_id).hide();
+        document.getElementById(guest_house_id).disabled=true;
     }
 }
 
 $(document).ready(function() {
+    $('#guest_house_source').hide();
+    $('#guest_house_destination').hide();
     if ($('#source').val() == 'other')
     {
         $('#other_source').attr('type',"text");
@@ -39,6 +54,7 @@ $(document).ready(function() {
         $('#flight_number_source').attr('type',"text");
         $('#flight_number_source').attr('disabled',false);
     }
+
     if ($('#destination').val() == 'other')
     {
         $('#other_destination').attr('type',"text");

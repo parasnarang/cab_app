@@ -23,25 +23,32 @@ class CabRequestsController < ApplicationController
     @cab_request.pick_up_date_time = date_time_parser(params[:cab_request][:pick_up_date],params[:cab_request][:pick_up_date_time])
     @other_source                  = params[:source]
     @other_destination             = params[:destination]
-    @flight_number_source          = params[:source]
-    @flight_number_destination     = params[:destination]
     requester = session[:cas_user]  + "@thoughtworks.com"
     if @cab_request.source == 'other'
        @cab_request.source = @other_source
        @source             = 'other'
     end
     if @cab_request.source == 'Airport'
-      @cab_request.source = 'Airport - Flight Number : ' + @flight_number_source
+      @cab_request.source = 'Airport - Flight Number : ' + @other_source
       @source             = 'Airport'
+    end
+    if @cab_request.source == 'Guest House'
+      @cab_request.source = 'Guest House : ' + @other_source
+      @source             = 'Guest House'
     end
     if @cab_request.destination == 'other'
        @cab_request.destination = @other_destination
        @destination             = 'other'
     end
     if @cab_request.destination == 'Airport'
-      @cab_request.destination = 'Airport - Flight Number : ' + @flight_number_destination
+      @cab_request.destination = 'Airport - Flight Number : ' + @other_destination
       @destination             = 'Airport'
     end
+    if @cab_request.destination == 'Guest House'
+      @cab_request.destination = 'Guest House : ' + @other_destination
+      @destination             = 'Guest House'
+    end
+
     admin_emails  = Admin.where(status: true).pluck(:email)
     if admin_emails.include? requester
       requester = ""

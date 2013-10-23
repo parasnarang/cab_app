@@ -68,6 +68,14 @@ describe CabRequestsController do
       controller.instance_variable_get(:@cab_request)[:source].should == 'Airport - Flight Number : 9W123'
     end
 
+    it 'should pick guest_house_source when source == Guest House' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
+      post :create, cab_request: attributes_for(:cab_request, source: 'Guest House'), source: 'A-408, Sushant Lok-1, Next to Plaza Mall, Opp Westin Hotel'
+      controller.instance_variable_get(:@cab_request)[:source].should == 'Guest House : A-408, Sushant Lok-1, Next to Plaza Mall, Opp Westin Hotel'
+    end
+
     it 'should pick other_destination when destination == others' do
       mailer = mock
       mailer.should_receive(:deliver)
@@ -82,6 +90,14 @@ describe CabRequestsController do
       CabRequestMailer.stub(:send_email).and_return(mailer)
       post :create, cab_request: attributes_for(:cab_request, destination: 'Airport'), destination: '9W123'
       controller.instance_variable_get(:@cab_request)[:destination].should == 'Airport - Flight Number : 9W123'
+    end
+
+    it 'should pick guest_house_destination when destination == Guest House' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
+      post :create, cab_request: attributes_for(:cab_request, destination: 'Guest House'), destination: 'A-408, Sushant Lok-1, Next to Plaza Mall, Opp Westin Hotel'
+      controller.instance_variable_get(:@cab_request)[:destination].should == 'Guest House : A-408, Sushant Lok-1, Next to Plaza Mall, Opp Westin Hotel'
     end
   end
 
