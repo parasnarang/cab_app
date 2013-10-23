@@ -51,9 +51,11 @@
             %input{type: "hidden", class: "input-block-level", name: "source", id: "other_source" , value: @other_source , disabled: true, required: true, title: 'maximum 20 characters', maxlength: 20}
             %input{type: "hidden", class: "input-block-level", name: "source", id: "flight_number_source", placeholder: "Flight Number", value: @other_source , disabled: true, required: true, title: 'maximum 20 characters', maxlength: 20}
             %select{type: 'hidden',name: "source", class: "source input-block-level", id: "guest_house_source", required: true, disabled: true}
+              %option{:disabled => "", :selected => "", :value => ""} Select
               -@guest_houses.each do|guest_house|
                 %option{value: guest_house,:selected => (guest_house == @cab_request.source)||(guest_house == @other_source)}= guest_house
               %end
+
       .row-fluid.form-main
         .span2
           %h4 To
@@ -68,6 +70,7 @@
             %input{type: 'hidden', class: "input-block-level", name: "destination", id: "other_destination" , disabled: true , value: @other_destination, required: true, maxlength: 20, title: 'maximum 20 characters'}
             %input{type: 'hidden', class: "input-block-level", name: "destination", id: "flight_number_destination", placeholder: "Flight Number", disabled: true , value: @other_destination, required: true, maxlength: 20, title: 'maximum 20 characters'}
             %select{type: 'hidden', name: "destination", class: "destination input-block-level", id: "guest_house_destination", required: true, disabled: true}
+              %option{:disabled => "", :selected => "", :value => ""} Select
               -@guest_houses.each do|guest_house|
                 %option{value: guest_house,:selected => (guest_house == @cab_request.destination)||(guest_house == @other_destination)}= guest_house
               %end
