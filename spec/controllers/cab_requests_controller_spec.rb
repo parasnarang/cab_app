@@ -60,6 +60,14 @@ describe CabRequestsController do
       controller.instance_variable_get(:@cab_request)[:source].should == 'Dilshad Garden'
     end
 
+    it 'should pick flight_number when source == Airport' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
+      post :create, cab_request: attributes_for(:cab_request, source: 'Airport'), source: '9W123'
+      controller.instance_variable_get(:@cab_request)[:source].should == 'Airport - Flight Number : 9W123'
+    end
+
     it 'should pick other_destination when destination == others' do
       mailer = mock
       mailer.should_receive(:deliver)
@@ -68,6 +76,13 @@ describe CabRequestsController do
       controller.instance_variable_get(:@cab_request)[:destination].should == 'Rajouri Gardens'
     end
 
+    it 'should pick flight_number when destination == Airport' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
+      post :create, cab_request: attributes_for(:cab_request, destination: 'Airport'), destination: '9W123'
+      controller.instance_variable_get(:@cab_request)[:destination].should == 'Airport - Flight Number : 9W123'
+    end
   end
 
   context 'show' do

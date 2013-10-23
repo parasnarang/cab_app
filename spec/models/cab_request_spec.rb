@@ -106,10 +106,10 @@ describe CabRequest do
       @cab_request.errors[:source].first.should== ' and Destination can\'t be same'
     end
 
-    it 'should not be more than 20 characters' do
+    it 'should not be more than 50 characters' do
       @cab_request.source = 'Hello'*50
       @cab_request.save.should be_false
-      @cab_request.errors[:source].first.should == 'is too long (maximum is 20 characters)'
+      @cab_request.errors[:source].first.should == 'is too long (maximum is 50 characters)'
     end
 
   end
@@ -122,10 +122,10 @@ describe CabRequest do
       @cab_request.errors[:destination].first.should == 'can\'t be blank'
     end
 
-    it 'should not be more than 20 characters' do
+    it 'should not be more than 50 characters' do
       @cab_request.destination = 'Hello'*50
       @cab_request.save.should be_false
-      @cab_request.errors[:destination].first.should == 'is too long (maximum is 20 characters)'
+      @cab_request.errors[:destination].first.should == 'is too long (maximum is 50 characters)'
     end
   end
 

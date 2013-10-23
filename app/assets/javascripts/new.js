@@ -1,6 +1,6 @@
 
 var time,source,destination,other_destination;
-function onSelectedValueChange(ddl_id,txt_id)
+function onSelectedValueChange(ddl_id,txt_id,txt2_id)
 {
     var ddl_list = document.getElementById(ddl_id);
     if  (ddl_list.value=="other")
@@ -8,25 +8,46 @@ function onSelectedValueChange(ddl_id,txt_id)
         document.getElementById(txt_id).type = "text";
         document.getElementById(txt_id).disabled=false;
         document.getElementById(txt_id).focus()
+        document.getElementById(txt2_id).type = "hidden";
+        document.getElementById(txt2_id).disabled=true;
+    }
+    else if (ddl_list.value=="Airport")
+    {
+        document.getElementById(txt2_id).type = "text";
+        document.getElementById(txt2_id).disabled=false;
+        document.getElementById(txt2_id).focus()
+        document.getElementById(txt_id).type = "hidden";
+        document.getElementById(txt_id).disabled=true;
     }
     else
     {
         document.getElementById(txt_id).type = "hidden";
         document.getElementById(txt_id).disabled=true;
+        document.getElementById(txt2_id).type = "hidden";
+        document.getElementById(txt2_id).disabled=true;
     }
 }
 
 $(document).ready(function() {
-
     if ($('#source').val() == 'other')
     {
         $('#other_source').attr('type',"text");
         $('#other_source').attr('disabled',false);
     }
+    if ($('#source').val() == 'Airport')
+    {
+        $('#flight_number_source').attr('type',"text");
+        $('#flight_number_source').attr('disabled',false);
+    }
     if ($('#destination').val() == 'other')
     {
         $('#other_destination').attr('type',"text");
         $('#other_destination').attr('disabled',false);
+    }
+    if ($('#destination').val() == 'Airport')
+    {
+        $('#flight_number_destination').attr('type',"text");
+        $('#flight_number_destination').attr('disabled',false);
     }
 
     $('#pick_up_time').focus(function(){
