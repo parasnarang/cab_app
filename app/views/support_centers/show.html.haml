@@ -40,7 +40,6 @@
         %th{width: "10%"} Time
         %th{width: "12%"} From
         %th{width: "12%"} To
-        %th{width: "10%"} No of passengers
         %th{width: "12%"} Vehicle Type
         %th{width: "25%"} Status
 
@@ -55,7 +54,6 @@
             %td= ist(each_request.pick_up_date_time)
             %td= each_request.source
             %td= each_request.destination
-            %td= each_request.no_of_passengers
             %td= each_request.vehicle_type
             %td
               %input{class: "update_message" ,value: each_request.status, disabled: true}

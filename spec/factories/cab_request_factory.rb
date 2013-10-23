@@ -8,7 +8,6 @@ FactoryGirl.define do
     r.pick_up_date '07/03/2913'
     r.pick_up_date_time  Time.now + 2.days
     r.traveler_name 'osama'
-    r.no_of_passengers 1
     r.vehicle_type 'Indigo'
     r.comments 'Help me pass test'
   end

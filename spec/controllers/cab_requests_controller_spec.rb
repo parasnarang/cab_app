@@ -49,7 +49,7 @@ describe CabRequestsController do
     end
 
     it 'should render new cab request template if not saved' do
-      post(:create , cab_request: attributes_for(:cab_request, no_of_passengers: '109')).should render_template('cab_requests/new')
+      post(:create , cab_request: attributes_for(:cab_request, contact_no: '109')).should render_template('cab_requests/new')
     end
 
     it 'should pick other_source when source == others' do

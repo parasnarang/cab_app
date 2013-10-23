@@ -49,10 +49,10 @@ end
 Given /^Users have some previous requests/ do
   CabRequest.create!( requester: 'homer', traveler_name: 'self',pick_up_date: '07/02/9999',
                       pick_up_date_time: '11:15 PM', contact_no: '9039409828',
-                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, vehicle_type: 'Indigo', comments: 'something' )
+                      source: 'Guest House', destination: 'ThoughtWorks', vehicle_type: 'Indigo', comments: 'something' )
   CabRequest.create!( requester: 'owl', traveler_name: 'self',pick_up_date: '07/02/9999',
                       pick_up_date_time: '11:15 PM', contact_no: '9039409828',
-                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, vehicle_type: 'Indigo', comments: 'something' )
+                      source: 'Guest House', destination: 'ThoughtWorks', vehicle_type: 'Indigo', comments: 'something' )
 end
 
 
@@ -98,8 +98,6 @@ Then /^User should be able to view cab_request form with blank fields$/ do
   page.should_not have_xpath('//input[@id="pick_up_time"][@value]')
   page.should have_xpath('//select[@id="source"]/option[@value="Airport"]')
   page.should have_xpath('//select[@id="destination"]/option[@value="Airport"]')
-  page.should have_xpath('//input[@id="no_of_passengers"]')
-  page.should_not have_xpath('//input[@id="no_of_passengers"][@value]')
   page.should have_xpath('//textarea[@id="comments"]')
 end
 
@@ -112,8 +110,6 @@ end
 #  page.should_not have_xpath('//input[@id="pick_up_time"][@value]')
 #  page.should have_xpath('//select[@id="source"]/option[@value="Airport"]')
 #  page.should have_xpath('//select[@id="destination"]/option[@value="Airport"]')
-#  page.should have_xpath('//input[@id="no_of_passengers"]')
-#  page.should_not have_xpath('//input[@id="no_of_passengers"][@value]')
 #  page.should have_xpath('//input[@id="comments"][@value=""]')
 #  page.should have_content("Traveler name can't be blank")
 #  page.should have_content("Contact no can't be blank")
@@ -121,9 +117,6 @@ end
 #  page.should have_content("Contact no is the wrong length (should be 10 characters)")
 #  page.should have_content("Pick up date can't be blank")
 #  page.should have_content("Pick up date time can't be blank")
-#  page.should have_content("No of passengers can't be blank")
-#  page.should have_content("No of passengers is not a number")
-#  page.should have_content("No of passengers should not be more than 50")
 #  page.should have_content("Source and Destination can't be same")
 #end
 
@@ -147,14 +140,12 @@ end
 Then /^User should be able to view cab_request form with pre-filled fields and an appropriate error message$/ do
   page.should have_xpath('//form[@id="new_cab_request"]')
   page.should have_xpath('//input[@id="traveler_name"][@value="cat"]')
-  page.should have_xpath('//input[@id="contact_no"][@value="1234567890"]')
+  page.should have_xpath('//input[@id="contact_no"][@value="123"]')
   page.should have_xpath('//input[@id="pick_up_date"][@value="07/02/9999"]')
   page.should have_xpath('//input[@id="pick_up_time"][@value="11:30 PM"]')
   page.should have_xpath('//select[@id="source"]/option[@value="ThoughtWorks"][@selected=""]')
   page.should have_xpath('//select[@id="destination"]/option[@value="other"][@selected=""]')
   page.should have_xpath('//input[@id="other_destination"][@value="India Gate"]')
-  page.should have_xpath('//input[@id="no_of_passengers"][@value="51"]')
-  page.should have_content('No of passengers should not be more than 50')
 end
 
 Then /^User should be able to view edit_([^"]*) form with pre-filled fields$/ do |content|
@@ -189,7 +180,6 @@ Then /^User should be able to view all ([^"]*) including ([^"]*)/ do |category,t
       page.should have_content(cab_request.contact_no)
       page.should have_content(cab_request.source)
       page.should have_content(cab_request.destination)
-      page.should have_content(cab_request.no_of_passengers)
     end
   elsif category == 'Admins'
     admins = Admin.all

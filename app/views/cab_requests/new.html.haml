@@ -77,13 +77,6 @@
 
       .row-fluid.form-main
         .span2
-          %h4 Passengers
-        .span4
-          .control-group
-            = f.text_field  :no_of_passengers, type: 'number', class: "input-block-level", value: @cab_request.no_of_passengers, placeholder: "No. of passengers (including you)", id: "no_of_passengers", required: true, min: '1', max: '50', title: '1..50 only'
-
-      .row-fluid.form-main
-        .span2
           %h4 Vehicle Type
         .span4
           .control-group

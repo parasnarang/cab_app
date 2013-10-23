@@ -73,7 +73,7 @@ describe SupportCentersController do
       @pick_up_date_time = Time.now + 1.days
       @cab_request  =  CabRequest.create!( requester: 'homer', traveler_name: 'self',pick_up_date: @pick_up_date_time.to_date,
                                            pick_up_date_time: @pick_up_date_time, contact_no: '9039409828',
-                                           source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, vehicle_type: 'Indigo', comments: 'something' )
+                                           source: 'Guest House', destination: 'ThoughtWorks', vehicle_type: 'Indigo', comments: 'something' )
       @from = Date.today.to_s
       @to   = (Date.today + 2.days).to_s
     end

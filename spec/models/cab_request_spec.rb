@@ -16,7 +16,6 @@ describe CabRequest do
       (@cab_request.has_attribute? :pick_up_date_time).should be_true
       (@cab_request.has_attribute? :source).should be_true
       (@cab_request.has_attribute? :destination).should be_true
-      (@cab_request.has_attribute? :no_of_passengers).should be_true
       (@cab_request.has_attribute? :vehicle_type).should be_true
       (@cab_request.has_attribute? :comments).should be_true
     end
@@ -126,27 +125,6 @@ describe CabRequest do
       @cab_request.destination = 'Hello'*50
       @cab_request.save.should be_false
       @cab_request.errors[:destination].first.should == 'is too long (maximum is 100 characters)'
-    end
-  end
-
-  context 'No of Passengers' do
-
-    it 'should not be blank' do
-      @cab_request.no_of_passengers = nil
-      @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should == 'can\'t be blank'
-    end
-
-    it 'should be numeric' do
-      @cab_request.no_of_passengers='fdds'
-      @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should =='is not a number'
-    end
-
-    it 'should not be more than 50' do
-      @cab_request.no_of_passengers=80
-      @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should=='should not be more than 50'
     end
   end
 
