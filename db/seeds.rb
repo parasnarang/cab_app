@@ -9,3 +9,4 @@
 
 Admin.create( name: "ggnfacilities", contact_no: "8800991035", email: "ggnfacilities@thoughtworks.com" , status: true)
 Admin.create( name: "damandek", contact_no: "8800991035", email: "damandek@thoughtworks.com" , status: true)
+Vendor.create( name: "ggnfacilities", contact_no: "8800991035", email: "ggnfacilities@thoughtworks.com" , status: true)
