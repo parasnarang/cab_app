@@ -9,7 +9,7 @@ Feature: Creating a new Admin
 
   Scenario: Admin creates a New Admin
     And   User is on the new admin page
-    And   User fills in name as donkey
+    And   User fills in name as Donkey
     And   User fills in contact_no as 1234567890
     And   User fills in email as narangparas@gmail.com
     When  User creates Admin
