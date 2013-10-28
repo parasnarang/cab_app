@@ -9,9 +9,9 @@ Feature: Configuring Vendors
 
   Scenario: Admin creates a new Vendor
     And   User is on the new vendor page
-    And   User fills in name as bull
+    And   User fills in name as Bull
     And   User fills in contact_no as 1234567890
-    And   User fills in email as apurvagupta0@gmail.com
+    And   User fills in email as narangparas0@gmail.com
     When  User creates Vendor
     Then  User should be able to view all vendors including this one
     And   User should be able to view Edit link
@@ -19,7 +19,7 @@ Feature: Configuring Vendors
 
   Scenario: Admin updates an existing Vendor
     And   User is on the edit vendors page
-    And   User fills in name as rabbit
+    And   User fills in name as Rabbit
     When  User updates a vendor
     Then  User should be able to view all Vendors including the updated one
     And   User should be able to view Edit link

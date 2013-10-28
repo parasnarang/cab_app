@@ -11,7 +11,7 @@ Feature: Requesting a cab
     And    User is on the home page
 
   Scenario: Sends a valid Cab Request
-    And    User fills in traveler_name as cat
+    And    User fills in traveler_name as Cat
     And    User fills in contact_no as 1234567890
     And    User fills in pick_up_date as 07/02/9999
     And    User fills in pick_up_time as 11:30 PM

@@ -6,7 +6,7 @@ Given /^User is logged in$/ do
 end
 
 Given /^Current User is Admin$/ do
-  Admin.create!(name: 'homer', contact_no: '1234567890',email:"apurva@gmail.com", status: false)
+  Admin.create!(name: 'homer', contact_no: '1234567890',email:"narangparas@gmail.com", status: false)
 end
 
 
@@ -20,14 +20,14 @@ Given /^User is on (.+)$/ do |page_name|
 end
 
 Given /^There is admin and vendor/ do
-  Vendor.create!(name:"bearbbbb",contact_no:"1234567890",email:"shipra@gmail.com",status:true)
-  Admin.create!(name:"spiderbbbb",contact_no:"9876543210",email:"pulkitko@thoughtworks.com",status:true)
+  Vendor.create!(name:"bearbbbb",contact_no:"1234567890",email:"parasnarang@gmail.com",status:true)
+  Admin.create!(name:"spiderbbbb",contact_no:"9876543210",email:"parasnar@thoughtworks.com",status:true)
 end
 
 Given /^There are admins and vendors/ do
-  Vendor.create!(name:"deer",contact_no:"1234567890",email:"apurvagupta0@gmail.com",status:false)
-  Vendor.create!(name:"bear",contact_no:"1234567890",email:"shipra@gmail.com",status:true)
-  Admin.create!(name:"spider",contact_no:"9876543210",email:"pulkit@gmail.com",status:true)
+  Vendor.create!(name:"deer",contact_no:"1234567890",email:"parasnar@thoughtworks.com",status:false)
+  Vendor.create!(name:"bear",contact_no:"1234567890",email:"pnarang@thoughtworks.com",status:true)
+  Admin.create!(name:"spider",contact_no:"9876543210",email:"narangparas@gmail.com",status:true)
 end
 
 Given /^User fills in ([^"]*) as ([^"]*)$/ do |element, text|
