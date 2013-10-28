@@ -1,26 +1,29 @@
 class CabRequestMailer < ActionMailer::Base
   ActionMailer::Base.delivery_method = :smtp
-  default :from => "twcabrequest@gmail.com"
+  default :from => "twcabrequest@gmail.com",
+          :reply_to => "ggnfacilities@thoughtworks.com,damandek@thoughtworks.com"
 
 # send a signup email to the user, pass in the user object that contains the user's email address
   def send_email(cab_request,pick_up_date,pick_up_time,requester,admin_emails,vendor_email)
-    mail(cc: [admin_emails,vendor_email,requester] , subject: "[Cab Request]", body:  "Name:\t" + cab_request.traveler_name+
+    mail(cc: [admin_emails,vendor_email,requester] , subject: "[Cab Request]", body:
 
-                                                        "\nContact_no:\t" + cab_request.contact_no+
+                                                        "Name            :\t" + cab_request.traveler_name+
 
-                                                        "\nFrom:\t" + cab_request.source+
+                                                        "\nContact_no    :\t" + cab_request.contact_no+
 
-                                                         "\nTo:\t" + cab_request.destination+
+                                                        "\nFrom          :\t" + cab_request.source+
 
-                                                         "\nOn:\t" + pick_up_date+
+                                                         "\nTo           :\t" + cab_request.destination+
 
-                                                         "\nAt:\t" + pick_up_time+
+                                                         "\nOn           :\t" + pick_up_date+
 
-                                                         "\nVehicle Type:\t" + cab_request.vehicle_type+
+                                                         "\nAt           :\t" + pick_up_time+
 
-                                                         "\nComments:\t" + cab_request.comments+
+                                                         "\nVehicle Type :\t" + cab_request.vehicle_type+
 
-                                                         "\nStatus:\t" + cab_request.status)
+                                                         "\nComments     :\t" + cab_request.comments+
+
+                                                         "\nStatus       :\t" + cab_request.status)
 
   end
 end
