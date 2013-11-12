@@ -9,7 +9,7 @@ class CabRequest < ActiveRecord::Base
   validates_length_of :contact_no, minimum: 10
   validates_length_of :source, maximum: 100
   validates_length_of :destination, maximum: 100
-  validates_length_of :comments, maximum: 25
+  validates_length_of :comments, maximum: 500
 
   validate :check_source_and_destination
   validate :time_validation
