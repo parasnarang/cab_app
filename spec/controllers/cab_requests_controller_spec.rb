@@ -56,7 +56,7 @@ describe CabRequestsController do
       mailer = mock
       mailer.should_receive(:deliver)
       CabRequestMailer.stub(:send_email).and_return(mailer)
-      post :create, cab_request: attributes_for(:cab_request, source: 'other'), source: 'Dilshad Garden'
+      post :create, cab_request: attributes_for(:cab_request, source: 'Other'), source: 'Dilshad Garden'
       controller.instance_variable_get(:@cab_request)[:source].should == 'Dilshad Garden'
     end
 
@@ -80,7 +80,7 @@ describe CabRequestsController do
       mailer = mock
       mailer.should_receive(:deliver)
       CabRequestMailer.stub(:send_email).and_return(mailer)
-      post :create, cab_request: attributes_for(:cab_request, destination: 'other'), destination: 'Rajouri Gardens'
+      post :create, cab_request: attributes_for(:cab_request, destination: 'Other'), destination: 'Rajouri Gardens'
       controller.instance_variable_get(:@cab_request)[:destination].should == 'Rajouri Gardens'
     end
 

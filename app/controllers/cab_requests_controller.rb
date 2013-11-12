@@ -24,9 +24,9 @@ class CabRequestsController < ApplicationController
     @other_source                  = params[:source]
     @other_destination             = params[:destination]
     requester = session[:cas_user]  + "@thoughtworks.com"
-    if @cab_request.source == 'other'
+    if @cab_request.source == 'Other'
        @cab_request.source = @other_source
-       @source             = 'other'
+       @source             = 'Other'
     end
     if @cab_request.source == 'Airport'
       @cab_request.source = 'Airport - Flight Number : ' + @other_source
@@ -36,9 +36,9 @@ class CabRequestsController < ApplicationController
       @cab_request.source = 'Guest House : ' + @other_source
       @source             = 'Guest House'
     end
-    if @cab_request.destination == 'other'
+    if @cab_request.destination == 'Other'
        @cab_request.destination = @other_destination
-       @destination             = 'other'
+       @destination             = 'Other'
     end
     if @cab_request.destination == 'Airport'
       @cab_request.destination = 'Airport - Flight Number : ' + @other_destination

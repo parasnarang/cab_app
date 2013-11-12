@@ -139,10 +139,10 @@ describe CabRequest do
 
   context 'Comments' do
 
-    it 'should not contain more than 100 characters' do
-      @cab_request.comments = 'hello'*7
+    it 'should not contain more than 500 characters' do
+      @cab_request.comments = 'hello'*500
       @cab_request.save.should be_false
-      @cab_request.errors[:comments].first.should == 'is too long (maximum is 25 characters)'
+      @cab_request.errors[:comments].first.should == 'is too long (maximum is 500 characters)'
     end
   end
 

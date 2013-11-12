@@ -3,7 +3,7 @@ var time,source,destination,other_destination;
 function onSelectedValueChange(ddl_id,txt_id,txt2_id,guest_house_id)
 {
     var ddl_list = document.getElementById(ddl_id);
-    if  (ddl_list.value=="other")
+    if  (ddl_list.value=="Other")
     {
         document.getElementById(txt_id).type = "text";
         document.getElementById(txt_id).disabled=false;
@@ -44,7 +44,7 @@ function onSelectedValueChange(ddl_id,txt_id,txt2_id,guest_house_id)
 $(document).ready(function() {
     $('#guest_house_source').hide();
     $('#guest_house_destination').hide();
-    if ($('#source').val() == 'other')
+    if ($('#source').val() == 'Other')
     {
         $('#other_source').attr('type',"text");
         $('#other_source').attr('disabled',false);
@@ -55,7 +55,7 @@ $(document).ready(function() {
         $('#flight_number_source').attr('disabled',false);
     }
 
-    if ($('#destination').val() == 'other')
+    if ($('#destination').val() == 'Other')
     {
         $('#other_destination').attr('type',"text");
         $('#other_destination').attr('disabled',false);
@@ -156,11 +156,11 @@ $(document).ready(function() {
            time.setCustomValidity("");
         }
 
-        if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
+        if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'Other'))
         {
            destination.setCustomValidity("destination can't be same as source");
         }
-        else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
+        else if(($('#source').val() == 'Other') && ($('#other_source').val() == ($('#other_destination').val())))
         {
            destination.setCustomValidity("");
            other_destination.setCustomValidity("destination can't be same as source");

@@ -144,7 +144,7 @@ Then /^User should be able to view cab_request form with pre-filled fields and a
   page.should have_xpath('//input[@id="pick_up_date"][@value="07/02/9999"]')
   page.should have_xpath('//input[@id="pick_up_time"][@value="11:30 PM"]')
   page.should have_xpath('//select[@id="source"]/option[@value="ThoughtWorks"][@selected=""]')
-  page.should have_xpath('//select[@id="destination"]/option[@value="other"][@selected=""]')
+  page.should have_xpath('//select[@id="destination"]/option[@value="Other"][@selected=""]')
   page.should have_xpath('//input[@id="other_destination"][@value="India Gate"]')
 end
 

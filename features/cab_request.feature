@@ -16,7 +16,7 @@ Feature: Requesting a cab
     And    User fills in pick_up_date as 07/02/9999
     And    User fills in pick_up_time as 11:30 PM
     And    User selects ThoughtWorks from drop down list source
-    And    User selects other from drop down list destination
+    And    User selects Other from drop down list destination
     And    User fills in other_destination as India Gate
     And    User selects Indigo from drop down list vehicle_type
     And    Users have some previous requests
@@ -30,7 +30,7 @@ Feature: Requesting a cab
     And    User fills in pick_up_date as 07/02/9999
     And    User fills in pick_up_time as 11:30 PM
     And    User selects ThoughtWorks from drop down list source
-    And    User selects other from drop down list destination
+    And    User selects Other from drop down list destination
     And    User fills in other_destination as India Gate
     When   User creates cab_request
     Then   User should be able to view cab_request form with pre-filled fields and an appropriate error message
