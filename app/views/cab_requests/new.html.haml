@@ -15,18 +15,26 @@
             -@cab_request.errors.full_messages.each do |msg|
               %li=  msg
             %end
-      .row-fluid
+      .row-fluid.form-main
         .span9
           %h3 Make your booking here
 
-      .row-fluid.form-main
+      .row-fluid
         .span2
           %h4 For
         .span4
           .control-group
             = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "Name", required: true, title: 'Enter your name', maxlength: '35'
+
+      .row-fluid.form-main
+        .span2
+          %h4
+        .span1
           .control-group
-            = f.text_field :contact_no, class: "input-block-level", placeholder: "Contact No (10 digits)" , id: "contact_no", required: true, pattern: '[0-9]{10}' , title: 'A valid phone no. with 10 digits'
+            = f.text_field :contact_no_prefix, class: "input-block-level", value: '+91', id: "contact_no_prefix", required: false, disabled: true
+        .span3
+          .control-group
+            = f.text_field :contact_no, class: "input-block-level", placeholder: "Contact No" , id: "contact_no", required: true, pattern: '[0-9]{10}' , title: 'A valid phone no. with 10 digits'
 
       .row-fluid.form-main
         .span2
