@@ -41,6 +41,8 @@
         %th{width: "12%"} From
         %th{width: "12%"} To
         %th{width: "12%"} Vehicle Type
+        %th{width: "15%"} Other Travellers
+        %th{width: "15%"} Comments
         %th{width: "25%"} Status
 
         - @cab_requests_page.zip(@dates).each do |each_request,date|
@@ -55,6 +57,8 @@
             %td= each_request.source
             %td= each_request.destination
             %td= each_request.vehicle_type
+            %td= each_request.other_travellers
+            %td= each_request.comments
             %td
               %input{class: "update_message" ,value: each_request.status, disabled: true}
               %a{href: '#', class: "edit_message", title: "edit status"}

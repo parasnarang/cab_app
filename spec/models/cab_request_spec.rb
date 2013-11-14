@@ -17,6 +17,7 @@ describe CabRequest do
       (@cab_request.has_attribute? :source).should be_true
       (@cab_request.has_attribute? :destination).should be_true
       (@cab_request.has_attribute? :vehicle_type).should be_true
+      (@cab_request.has_attribute? :other_travellers).should be_true
       (@cab_request.has_attribute? :comments).should be_true
     end
 
@@ -134,6 +135,15 @@ describe CabRequest do
       @cab_request.vehicle_type=nil
       @cab_request.save.should be_false
       @cab_request.errors[:vehicle_type].first.should == 'can\'t be blank'
+    end
+  end
+
+  context 'Other Travellers' do
+
+    it 'should not contain more than 500 characters' do
+      @cab_request.other_travellers = 'hello'*500
+      @cab_request.save.should be_false
+      @cab_request.errors[:other_travellers].first.should == 'is too long (maximum is 500 characters)'
     end
   end
 

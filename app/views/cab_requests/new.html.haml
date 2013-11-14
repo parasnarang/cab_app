@@ -94,12 +94,19 @@
                 %option{value: vehicle_type,:selected => (vehicle_type == @cab_request.vehicle_type)||(vehicle_type == @vehicle_type)}= vehicle_type
               %end
 
+      .row-fluid.form-main
+        .span2
+          %h4 Other Travellers
+        .span4
+          .control-group
+            =f.text_area :other_travellers, class: "input-block-level", placeholder: "Other Travellers (optional)", id: "other_travellers", maxlength: 500
+
       .row-fluid
         .span2
           %h4 Comments
         .span4
           .control-group
-            =f.text_area :comments, class: "input-block-level", placeholder: "Any message(optional)", id: "comments", maxlength: 500
+            =f.text_area :comments, class: "input-block-level", placeholder: "Any message (optional)", id: "comments", maxlength: 500
 
       .row-fluid
         .span2

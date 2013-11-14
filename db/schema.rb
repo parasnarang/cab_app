@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023134537) do
+ActiveRecord::Schema.define(:version => 20131114111619) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20131023134537) do
     t.datetime "pick_up_date_time"
     t.string   "status",            :default => "Pending"
     t.string   "vehicle_type"
+    t.string   "other_travellers"
   end
 
   create_table "vendors", :force => true do |t|

@@ -17,6 +17,8 @@
       %th From
       %th To
       %th Vehicle Type
+      %th Other Travellers
+      %th Comments
       %th Status
 
       - @cab_requests_page.zip(@dates).each do |each_request,date|
@@ -30,6 +32,8 @@
           %td= each_request.source
           %td= each_request.destination
           %td= each_request.vehicle_type
+          %td= each_request.other_travellers
+          %td= each_request.comments
           %td= each_request.status
       %end
 
